@@ -4,6 +4,7 @@ import Blogs from "../../Pages/Blogs/Blogs";
 import Home from "../../Pages/Home/Home/Home"
 import Login from "../../Pages/Login/Login";
 import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
+import SingleCategoryProduct from "../../Pages/SingleCategoryProduct/SingleCategoryProduct";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: 'products/:id',
+                element: <SingleCategoryProduct></SingleCategoryProduct>,
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
             }
         ]
     }

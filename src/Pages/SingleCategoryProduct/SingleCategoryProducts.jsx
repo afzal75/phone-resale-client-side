@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SingleCategoryProducts = ({ product }) => {
-    const { title, img, location, resalePrice, originalPrice } = product;
+    const { title, img, location, resalePrice, originalPrice, useProduct } = product;
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
@@ -12,8 +12,9 @@ const SingleCategoryProducts = ({ product }) => {
                 <p>{location}</p>
                 <p>Price: $ {originalPrice}</p>
                 <p>Resale Price: $ {resalePrice}</p>
+                <p>Use: {useProduct}</p>
                 <div className="card-actions">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn btn-primary">Book Now</button>
                 </div>
             </div>
         </div>

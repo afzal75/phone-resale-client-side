@@ -1,13 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import images from '../../assets/images/signup.jpg'
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
 
-    const handleSignUp = (data) => {
-        
-    }
+    const {createUser} = useContext(AuthContext);
+    
 
+    const handleSignUp = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const selection = form.selection.value;
+        console.log(name, photoURL, email, password, selection );
+
+
+        createUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
     return (
         <div>
             <div className="hero my-20 w-full">
@@ -30,12 +50,6 @@ const SignUp = () => {
                                 </label>
                                 <input type="text" name="photoURL" placeholder="PhotoURL" className="input input-bordered" />
                             </div>
-                            {/* <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Name</span>
-                            </label>
-                            <input type="text" name="name" placeholder="Your Name" className="input input-bordered" />
-                        </div> */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -49,7 +63,7 @@ const SignUp = () => {
                                 <input type="password" name="password" placeholder="password" className="input input-bordered" required />
 
                             </div>
-                            <select className="select select-bordered w-full max-w-xs">
+                            <select name='selection' className="select select-bordered w-full max-w-xs">
                                 <option>Buyer</option>
                                 <option>Seller</option>
                             </select>
@@ -59,12 +73,12 @@ const SignUp = () => {
                         </form>
                         <p className='text-center'>Already have an account? <Link className='text-blue-600 font-bold' to="/login">Login</Link></p>
                         {/* <p className='bg-red-600'>
-                                    {error}
-                                </p> */}
+                            {error}
+                        </p> */}
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

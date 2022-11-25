@@ -7,6 +7,7 @@ import Login from "../../Pages/Login/Login";
 import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
 import SignUp from "../../Pages/SignUp/SignUp";
 import SingleCategoryProduct from "../../Pages/SingleCategoryProduct/SingleCategoryProduct";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
     }
 ])
 

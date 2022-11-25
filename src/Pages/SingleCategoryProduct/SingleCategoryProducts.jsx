@@ -1,4 +1,5 @@
 import React from 'react';
+import BookingModal from '../BookingModal/BookingModal';
 
 const SingleCategoryProducts = ({ product }) => {
     const { title, img, location, resalePrice, originalPrice, useProduct } = product;
@@ -14,9 +15,13 @@ const SingleCategoryProducts = ({ product }) => {
                 <p>Resale Price: $ {resalePrice}</p>
                 <p>Use: {useProduct}</p>
                 <div className="card-actions">
-                    <button className="btn btn-primary">Book Now</button>
+                    {/* <button className="">Book Now</button> */}
+                    <label htmlFor="booking-modal" className="btn btn-primary">Book Now</label>
                 </div>
             </div>
+            <BookingModal
+                product={product}
+            ></BookingModal>
         </div>
     );
 };

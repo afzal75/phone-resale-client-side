@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import Main from "../../Layout/Main"
 import Blogs from "../../Pages/Blogs/Blogs";
+import Dashboard from "../../Pages/Dashboard/Dashboard";
 import Home from "../../Pages/Home/Home/Home"
 import Login from "../../Pages/Login/Login";
 import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
             }
         ]
+    },
+    {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>
     }
 ])
 

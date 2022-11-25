@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import images from '../../assets/images/signup.jpg'
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
 
-    const {createUser} = useContext(AuthContext);
-    
+    const {createUser, updateUser} = useContext(AuthContext);
+    const [signUpError, setSignUpError] = useState('')
 
-    const handleSignUp = event => {
+    const handleSignUp = (event) => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
@@ -22,10 +23,19 @@ const SignUp = () => {
         createUser(email, password)
         .then(result => {
             const user = result.user;
-            console.log(user)
+            console.log(user);
+            setSignUpError('');
+            toast.success('User Created Successfully');
+            const userInfo = {
+                displayName: name
+            }
+            updateUser(userInfo)
+            .then( () => {})
+            .catch( (error) => console.log(error))
         })
         .catch(error => {
             console.log(error)
+            setSignUpError(error.message)
         })
     }
     return (
@@ -72,9 +82,7 @@ const SignUp = () => {
                             </div>
                         </form>
                         <p className='text-center'>Already have an account? <Link className='text-blue-600 font-bold' to="/login">Login</Link></p>
-                        {/* <p className='bg-red-600'>
-                            {error}
-                        </p> */}
+                        {signUpError && <p className='text-red-600'>{signUpError}</p>}
                     </div>
                 </div>
             </div >

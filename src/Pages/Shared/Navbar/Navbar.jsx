@@ -7,8 +7,8 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         logOut()
-        .then( () => {})
-        .catch( (error) => {console.log(error)})
+            .then(() => { })
+            .catch((error) => { console.log(error) })
     }
 
     const menuItems = <React.Fragment>
@@ -19,11 +19,14 @@ const Navbar = () => {
         <li><Link to="/blogs">Blogs</Link></li>
         {
             user?.uid ?
-            <li><button onClick={handleLogOut}>Sign Out</button></li>
-            :
-            <li><Link to="/login">Login</Link></li>
+                <>
+                    <li><Link to="/dashboard">Dashboard</Link></li>
+                    <li><button onClick={handleLogOut}>Sign Out</button></li>
+                </>
+                :
+                <li><Link to="/login">Login</Link></li>
         }
-        
+
     </React.Fragment>
 
     return (

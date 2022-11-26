@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import images from '../../assets/images/signup.jpg'
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
 
     const {createUser, updateUser} = useContext(AuthContext);
-    const [signUpError, setSignUpError] = useState('')
+    const [signUpError, setSignUpError] = useState('');
+    const navigate = useNavigate();
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -30,7 +31,9 @@ const SignUp = () => {
                 displayName: name
             }
             updateUser(userInfo)
-            .then( () => {})
+            .then( () => {
+                navigate('/')
+            })
             .catch( (error) => console.log(error))
         })
         .catch(error => {

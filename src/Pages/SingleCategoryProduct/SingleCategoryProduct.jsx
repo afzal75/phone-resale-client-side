@@ -7,7 +7,7 @@ const SingleCategoryProduct = () => {
 
     const [modalProducts, setModalProducts] = useState(null);
     const products = useLoaderData();
-    console.log(products);
+    // console.log(products);
 
     return (
         <section>

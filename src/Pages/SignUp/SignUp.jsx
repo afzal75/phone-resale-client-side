@@ -122,8 +122,8 @@ const SignUp = () => {
 
                             </div>
                             <select name='role' className="select select-bordered w-full max-w-xs">
-                                <option>Buyer</option>
-                                <option>Seller</option>
+                                <option>buyer</option>
+                                <option>seller</option>
                             </select>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Sign Up" />

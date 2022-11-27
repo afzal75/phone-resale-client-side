@@ -15,7 +15,6 @@ const SingleCategoryProducts = ({ product, setModalProducts }) => {
                 <p>Resale Price: $ {resalePrice}</p>
                 <p>Use: {useProduct}</p>
                 <div className="card-actions">
-                    
                     <label onClick={() => setModalProducts(product)} htmlFor="booking-modal" className="btn btn-primary">Book Now</label>
                 </div>
             </div>

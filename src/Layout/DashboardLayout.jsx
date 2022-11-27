@@ -23,6 +23,7 @@ const DashboardLayout = () => {
                         <li><Link to="/dashboard/allusers">All Users</Link></li>
                         <li><Link to="/dashboard/allbuyer">All Buyer</Link></li>
                         <li><Link to="/dashboard/addproduct">Add Product</Link></li>
+                        <li><Link to="/dashboard/myproduct">My Product</Link></li>
                         {
                             // isAdmin && <>
                             //     

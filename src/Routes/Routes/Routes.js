@@ -4,7 +4,7 @@ import Main from "../../Layout/Main"
 import Blogs from "../../Pages/Blogs/Blogs";
 import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 import AllBuyer from "../../Pages/Dashboard/AllBuyer/AllBuyer";
-import AllUser from "../../Pages/Dashboard/AllUser/AllUser";
+import AllSeller from "../../Pages/Dashboard/AllSeller/AllSeller";
 import MyProduct from "../../Pages/Dashboard/MyProduct/MyProduct";
 // import Dashboard from "../../Pages/Dashboard/Dashboard";
 import Home from "../../Pages/Home/Home/Home"
@@ -48,8 +48,8 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
-                path: '/dashboard/allusers',
-                element: <AllUser></AllUser>
+                path: '/dashboard/allseller',
+                element: <AllSeller></AllSeller>
             },
             {
                 path: '/dashboard/allbuyer',

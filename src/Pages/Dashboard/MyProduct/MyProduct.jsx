@@ -4,7 +4,7 @@ import React from 'react';
 import MyProducts from './MyProducts';
 
 const MyProduct = () => {
-    const { data: products, isLoading } = useQuery({
+    const { data: products = [], isLoading } = useQuery({
         queryKey: ['product'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/products');

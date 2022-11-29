@@ -50,7 +50,6 @@ const AllBuyer = () => {
                                     <td>{buyer?.displayName}</td>
                                     <td>{buyer?.email}</td>
                                     <td>{buyer?.role}</td>
-                                    {/* <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td> */}
                                     <td><button onClick={() => handleDeleteBuyer(buyer)} className='btn btn-xs btn-danger'>Delete</button></td>
                                 </tr>)
                             }

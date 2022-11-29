@@ -12,6 +12,19 @@ const AllSeller = () => {
         }
     });
 
+    const handleMakeVerifySeller = (id) => {
+        fetch(`http://localhost:5000/users/seller/${id}`, {
+            method: 'PUT'
+        })
+            .then(res => res.json())
+            .then(data => {
+               if(data.modifiedCount > 0){
+                toast('Seller Verified')
+                refetch();
+               }
+            })
+    }
+
     const handleDeleteSeller = (seller) => {
         fetch(`http://localhost:5000/seller/${seller._id}`, {
             method: 'DELETE',
@@ -38,6 +51,7 @@ const AllSeller = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
+                            <th>Verified Seller</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -48,7 +62,15 @@ const AllSeller = () => {
                                 <td>{seller?.displayName}</td>
                                 <td>{seller?.email}</td>
                                 <td>{seller?.role}</td>
-                                {/* <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td> */}
+                                <td>
+                                    {
+                                        seller?.verify !== 'verified' ? <button onClick={() => handleMakeVerifySeller(seller._id)} className='btn btn-xs btn-primary'>Verify Seller</button>
+                                            :
+                                            <button className='btn btn-xs bg-green-600 text-black borde-0'>Verified</button>
+                                    }
+
+
+                                </td>
                                 <td><button onClick={() => handleDeleteSeller(seller)} className='btn btn-xs btn-danger'>Delete</button></td>
                             </tr>)
                         }

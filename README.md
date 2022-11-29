@@ -1,6 +1,30 @@
-# Getting Started with Create React App
+* My Website Name: Resale Product
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* Live Website Link: 
+
+* Admin Email & Password
+* Email: sajeeb999@gmail.com
+* Password: 123456
+#### Features:
+* Clickeable Phone Category Card
+* Firebase Authentication
+* Mobile and desktop responsive
+* My Product Section
+* Buyer Product Booking Section
+* Seller Product added Section
+* Google Authentication
+* Email, Password Authentication
+* CheakeOut Page.
+* Admin Route
+* Seller Route
+* Private route
+
+#### Techonologies
+* client side: React, Tailwind Css & Daisy UI, React Queary, React hook form, axios, React-router-dom, Firebase.
+
+* Server side: Node, Express, Vercel
+
+* Database: MongoDB
 
 ## Available Scripts
 

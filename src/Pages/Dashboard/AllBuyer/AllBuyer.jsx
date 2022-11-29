@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const AllBuyer = () => {
-    const { data: buyers = [], } = useQuery({
+    const { data: buyers = [], refetch } = useQuery({
         queryKey: ['buyer'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/buyers');
@@ -10,6 +11,23 @@ const AllBuyer = () => {
             return data;
         }
     });
+
+    const handleDeleteBuyer = (buyer) => {
+        fetch(`http://localhost:5000/buyer/${buyer._id}`, {
+            method: 'DELETE',
+            // headers: {
+            //     authorization: `bearer ${localStorage.getItem('accessToken')}`
+            // }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch();
+                    toast.success(`Buyer ${buyer.displayName} Deleted Successfully`);
+                }
+            })
+    }
+
     return (
         <div>
             <div>
@@ -33,7 +51,7 @@ const AllBuyer = () => {
                                     <td>{buyer?.email}</td>
                                     <td>{buyer?.role}</td>
                                     {/* <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td> */}
-                                    <td><button className='btn btn-xs btn-danger'>Delete</button></td>
+                                    <td><button onClick={() => handleDeleteBuyer(buyer)} className='btn btn-xs btn-danger'>Delete</button></td>
                                 </tr>)
                             }
                         </tbody>

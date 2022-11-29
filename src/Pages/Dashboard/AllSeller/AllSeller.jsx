@@ -23,7 +23,7 @@ const AllSeller = () => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     refetch();
-                    toast.success(`Doctor ${seller.title} Deleted Successfully`);
+                    toast.success(`Seller ${seller.displayName} Deleted Successfully`);
                 }
             })
     }

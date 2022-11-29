@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
+import Loading from '../../Shared/Loading/Loading';
 import MyProducts from './MyProducts';
 
 const MyProduct = () => {
@@ -27,6 +28,10 @@ const MyProduct = () => {
                     toast.success('Product Deleted Successfully');
                 }
             })
+    }
+
+    if(isLoading) {
+        return <Loading></Loading>
     }
     return (
         <div className='grid gap-6 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2'>

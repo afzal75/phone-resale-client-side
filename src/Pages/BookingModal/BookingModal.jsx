@@ -17,7 +17,7 @@ const BookingModal = ({ modalProducts, setModalProducts }) => {
         const location = form.location.value;
         const originalPrice = form.originalPrice.value;
         const resalePrice = form.resalePrice.value;
-        const sellerName = form.sellerName.value;
+        // const sellerName = form.sellerName.value;
         const useProduct = form.useProduct.value;
 
 
@@ -31,7 +31,7 @@ const BookingModal = ({ modalProducts, setModalProducts }) => {
             originalPrice,
             resalePrice,
             useProduct,
-            sellerName: sellerName
+            // sellerName: sellerName
         }
 
         fetch('http://localhost:5000/bookings', {
@@ -62,7 +62,7 @@ const BookingModal = ({ modalProducts, setModalProducts }) => {
                         <h3 className="text-lg font-bold">{title}</h3>
                         <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
                             <input type="text" disabled defaultValue={date} className="input w-full input-bordered" />
-                            <input name='sellerName' type="text" placeholder="Seller Name" className="input w-full input-bordered" />
+                            {/* <input name='sellerName' type="text" placeholder="Seller Name" className="input w-full input-bordered" /> */}
                             <input name='name' type="text" defaultValue={user?.displayName} disabled placeholder="User Name" className="input w-full input-bordered" />
                             <input name='title' type="text" defaultValue={title} disabled placeholder="title" className="input w-full input-bordered" />
                             <input name='email' type="text" defaultValue={user?.email} disabled placeholder="Email Address" className="input w-full input-bordered" />

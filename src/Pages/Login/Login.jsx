@@ -29,7 +29,8 @@ const Login = () => {
             })
             .catch(error => {
                 console.log(error.message);
-                setLoginError(error.message)
+                setLoginError(error.message);
+                toast.error(error.message);
             })
     };
 
@@ -39,9 +40,6 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 const email = user?.email;
-                // const uid = user?.uid;
-                // const displayName = user?.displayName;
-                // console.log(email, uid, displayName)
                 if (email) {
                     axios.put(`http://localhost:5000/user/${email}`)
                         .then(data => {

@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react"
 
-const useSeller = (role) => {
+const useSeller = (email) => {
     const [isSeller, setIsSeller] = useState(false);
     const [isSellerLoading, setIsAdminLoading] = useState('true')
 
     useEffect( () => {
-        if(role){
-            fetch(`http://localhost:5000/users/seller/${role}`)
+        if(email){
+            fetch(`http://localhost:5000/users/seller/${email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                setIsSeller(data.isAdmin);
+                setIsSeller(data.isSeller);
                 setIsAdminLoading(false);
             })
         }
-    }, [role])
+    }, [email])
     return [isSeller, isSellerLoading]
 }
 

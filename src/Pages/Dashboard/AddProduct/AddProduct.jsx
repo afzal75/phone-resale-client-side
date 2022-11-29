@@ -1,12 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 // import { useLoaderData } from 'react-router-dom';
 
 
 const AddProduct = () => {
     // console.log(phone);
     const date = new Date();
+    const navigate = useNavigate()
     const { data: categories, isLoading } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
@@ -30,6 +32,7 @@ const AddProduct = () => {
         const useProduct = form.useProduct.value;
         const phone = form.phone.value;
         const location = form.location.value;
+        const description = form.description.value;
         const originalPrice = form.originalPrice.value;
         const resalePrice = form.resalePrice.value;
         const brandName = form.brandName.value;
@@ -44,6 +47,7 @@ const AddProduct = () => {
             useProduct,
             phone,
             location,
+            description,
             originalPrice,
             resalePrice,
             brandName
@@ -58,7 +62,9 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                navigate('/dashboard/myproduct')
                 toast.success('Product Added Successfully');
+                
             })
     }
 
@@ -76,6 +82,7 @@ const AddProduct = () => {
                 <input name='originalPrice' type="text" placeholder="Original Price" className="input w-full input-bordered" />
                 <input name='resalePrice' type="text" placeholder="Resale Price" className="input w-full input-bordered" />
                 <input name='phone' type="text" placeholder="Phone Number" className="input w-full input-bordered" />
+                <input name='description' type="text" placeholder="Description" className="input w-full input-bordered" />
                 <input name='location' type="text" placeholder="Location" className="input w-full input-bordered" />
                 <select name='brandName' className="select select-bordered w-full max-w-xs">
                     {

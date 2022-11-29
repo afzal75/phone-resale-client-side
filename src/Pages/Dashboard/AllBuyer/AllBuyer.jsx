@@ -5,14 +5,13 @@ const AllBuyer = () => {
     const { data: buyers = [], } = useQuery({
         queryKey: ['buyer'],
         queryFn: async () => {
-            const res = await fetch('');
-            const data = res.json();
+            const res = await fetch('http://localhost:5000/buyers');
+            const data = await res.json();
             return data;
         }
     });
     return (
         <div>
-            <h2 className="text-3xl">All Buyer</h2>
             <div>
                 <h2 className="text-4xl">All Seller</h2>
                 <div className="overflow-x-auto">
@@ -28,11 +27,11 @@ const AllBuyer = () => {
                         </thead>
                         <tbody>
                             {
-                                users.map((user, i) => <tr key={user._id}>
+                                buyers.map((buyer, i) => <tr key={buyer._id}>
                                     <th>{i + 1}</th>
-                                    <td>{user?.displayName}</td>
-                                    <td>{user?.email}</td>
-                                    <td>{user?.role}</td>
+                                    <td>{buyer?.displayName}</td>
+                                    <td>{buyer?.email}</td>
+                                    <td>{buyer?.role}</td>
                                     {/* <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td> */}
                                     <td><button className='btn btn-xs btn-danger'>Delete</button></td>
                                 </tr>)

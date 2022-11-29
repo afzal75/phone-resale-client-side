@@ -26,8 +26,8 @@ const SignUp = () => {
                 console.log(user);
                 setSignUpError('');
                 form.reset();
-                // navigate('/');
-                toast.success('User Created Successfully');
+                navigate('/');
+                // toast.success('User Created Successfully');
                 handleUpdateUserProfile(name, photoURL);
 
             })
@@ -53,8 +53,8 @@ const SignUp = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
-                    // toast.success('User Created Successfully');
-                    navigate('/');
+                    toast.success('User Created Successfully');
+                    // navigate('/');
                 })
             updateUserProfile(user)
                 .then(() => { })
@@ -63,27 +63,6 @@ const SignUp = () => {
 
                 })
         }
-
-        // createUser(email, password)
-        // .then(result => {
-        //     const user = result.user;
-        //     console.log(user);
-        //     setSignUpError('');
-        //     toast.success('User Created Successfully');
-        //     const userInfo = () => {
-        //         displayName: name,
-        //         photoURL: photoURL
-        //     }
-        //     updateUser(userInfo)
-        //     .then( () => {
-        //         navigate('/')
-        //     })
-        //     .catch( (error) => console.log(error))
-        // })
-        // .catch(error => {
-        //     console.log(error)
-        //     setSignUpError(error.message)
-        // })
     }
     return (
         <div>

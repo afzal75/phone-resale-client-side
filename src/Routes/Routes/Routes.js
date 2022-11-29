@@ -7,7 +7,6 @@ import AllBuyer from "../../Pages/Dashboard/AllBuyer/AllBuyer";
 import AllSeller from "../../Pages/Dashboard/AllSeller/AllSeller";
 import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders";
 import MyProduct from "../../Pages/Dashboard/MyProduct/MyProduct";
-// import Dashboard from "../../Pages/Dashboard/Dashboard";
 import Home from "../../Pages/Home/Home/Home"
 import Login from "../../Pages/Login/Login";
 import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";

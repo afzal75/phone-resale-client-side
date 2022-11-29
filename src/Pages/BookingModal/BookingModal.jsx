@@ -6,11 +6,12 @@ const BookingModal = ({ modalProducts, setModalProducts }) => {
     console.log(modalProducts);
     const { user } = useContext(AuthContext);
     const date = new Date();
-    const { title, originalPrice, resalePrice, useProduct,  location } = modalProducts;
+    const { title, originalPrice, resalePrice, useProduct, img,  location } = modalProducts;
     const handleBooking = (event) => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
+        const img = form.img.value
         const title = form.title.value;
         const email = form.email.value;
         const phone = form.phone.value;
@@ -24,6 +25,7 @@ const BookingModal = ({ modalProducts, setModalProducts }) => {
         const booking = {
             date,
             name,
+            img,
             title,
             email,
             phone,
@@ -65,6 +67,7 @@ const BookingModal = ({ modalProducts, setModalProducts }) => {
                             {/* <input name='sellerName' type="text" placeholder="Seller Name" className="input w-full input-bordered" /> */}
                             <input name='name' type="text" defaultValue={user?.displayName} disabled placeholder="User Name" className="input w-full input-bordered" />
                             <input name='title' type="text" defaultValue={title} disabled placeholder="title" className="input w-full input-bordered" />
+                            <input name='img' type="text" defaultValue={img} disabled placeholder="IMG" className="input w-full input-bordered" />
                             <input name='email' type="text" defaultValue={user?.email} disabled placeholder="Email Address" className="input w-full input-bordered" />
                             <input name='originalPrice' defaultValue={originalPrice} type="text" placeholder="Original Price" className="input w-full input-bordered" />
                             <input name='resalePrice' defaultValue={resalePrice} type="text" placeholder="Resale Price" className="input w-full input-bordered" />

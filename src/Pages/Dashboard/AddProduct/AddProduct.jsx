@@ -1,12 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
-// import { useLoaderData } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 
 const AddProduct = () => {
-    // console.log(phone);
+    useTitle('Add Product')
+    const {user} = useContext(AuthContext);
     const date = new Date();
     const navigate = useNavigate()
     const { data: categories, isLoading } = useQuery({
@@ -25,7 +27,8 @@ const AddProduct = () => {
     const handleAddProduct = (event) => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
+        // const name = form.name.value;
+        const sellerName = form.sellerName.value;
         const title = form.title.value;
         const email = form.email.value;
         const img = form.img.value;
@@ -40,7 +43,7 @@ const AddProduct = () => {
 
         const product = {
             date,
-            name,
+            // name,
             title,
             email,
             img,
@@ -50,7 +53,8 @@ const AddProduct = () => {
             description,
             originalPrice,
             resalePrice,
-            brandName
+            brandName,
+            sellerName
         }
         fetch('http://localhost:5000/products', {
             method: 'POST',
@@ -73,10 +77,10 @@ const AddProduct = () => {
             <h2 className="text-4xl">Add A Doctor</h2>
             <form onSubmit={handleAddProduct} className='grid grid-cols-1 gap-3 mt-10'>
                 <input type="text" disabled defaultValue={date} className="input w-full input-bordered" />
-                {/* <input name='sellerName' type="text" placeholder="Seller Name" className="input w-full input-bordered" /> */}
-                <input name='name' type="text" placeholder="User Name" className="input w-full input-bordered" />
+                <input name='sellerName' type="text" defaultValue={user?.displayName} placeholder="Seller Name" className="input w-full input-bordered" />
+                {/* <input name='name' type="text" placeholder="User Name" className="input w-full input-bordered" /> */}
                 <input name='title' type="text" placeholder="Title" className="input w-full input-bordered" />
-                <input name='email' type="text" placeholder="Email Address" className="input w-full input-bordered" />
+                <input name='email' type="text" defaultValue={user?.email} placeholder="Email Address" className="input w-full input-bordered" />
                 <input name='img' type="text" placeholder="IMAGE" className="input w-full input-bordered" />
                 <input name='useProduct' type="text" placeholder="Use Product" className="input w-full input-bordered" />
                 <input name='originalPrice' type="text" placeholder="Original Price" className="input w-full input-bordered" />

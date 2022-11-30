@@ -18,9 +18,10 @@
 * Admin Route
 * Seller Route
 * Private route
+* Stripe Payment Gateway Implement
 
 #### Techonologies
-* client side: React, Tailwind Css & Daisy UI, React Queary, React hook form, axios, React-router-dom, Firebase.
+* client side: React, Tailwind Css & Daisy UI, React Queary, React hook form, axios, React-router-dom, Firebase, Stripe Payment Gateway.
 
 * Server side: Node, Express, Vercel
 

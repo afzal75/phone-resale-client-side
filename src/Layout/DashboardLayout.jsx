@@ -1,4 +1,4 @@
-// import React, { useContext } from 'react';
+
 import { Link, Outlet } from 'react-router-dom';
 import Navbar from './../Pages/Shared/Navbar/Navbar';
 import useAdmin from './../hooks/useAdmin';
@@ -24,7 +24,7 @@ const DashboardLayout = () => {
                 <div className="drawer-side">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 text-base-content">
-                        <li><Link to="/dashboard">Dashboard</Link></li>
+                        <li><Link to="/dashboard"></Link></li>
 
                         {
                             isBuyer && <>
@@ -39,28 +39,13 @@ const DashboardLayout = () => {
                                 <li><Link to="/dashboard/myproduct">My Product</Link></li>
                             </>
                         }
-                        {/* {
-                            isAdmin === 'buyer' &&
-                            <>
-                                <li><Link to="/dashboard/myorders">My Order</Link></li>
-                            </>
-                        } */}
-
-                        {/* {
-                            isAdmin === 'seller' &&
-                            <>
-                                <li><Link to="/dashboard/addproduct">Add Product</Link></li>
-                                <li><Link to="/dashboard/myproduct">My Product</Link></li>
-                            </>
-                        } */}
-
                         {
                             isAdmin && <>
                                 <li><Link to="/dashboard/allseller">All Seller</Link></li>
                                 <li><Link to="/dashboard/allbuyer">All Buyer</Link></li>
 
-                            </>}
-
+                            </>
+                        }
                     </ul>
                 </div>
             </div>

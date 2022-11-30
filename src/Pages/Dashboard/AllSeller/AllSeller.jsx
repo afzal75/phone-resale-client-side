@@ -18,19 +18,16 @@ const AllSeller = () => {
         })
             .then(res => res.json())
             .then(data => {
-               if(data.modifiedCount > 0){
-                toast('Seller Verified')
-                refetch();
-               }
+                if (data.modifiedCount > 0) {
+                    toast('Seller Verified')
+                    refetch();
+                }
             })
     }
 
     const handleDeleteSeller = (seller) => {
         fetch(`http://localhost:5000/seller/${seller._id}`, {
             method: 'DELETE',
-            // headers: {
-            //     authorization: `bearer ${localStorage.getItem('accessToken')}`
-            // }
         })
             .then(res => res.json())
             .then(data => {

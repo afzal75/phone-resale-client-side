@@ -15,13 +15,17 @@ const PhoneCategory = () => {
         return <Loading></Loading>
     }
     return (
-        <div className='grid gap-6 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-            {
-                phones.map(phone => <PhoneCategories
-                    key={phone._id}
-                    phone={phone}
-                ></PhoneCategories>)
-            }
+        <div className='mt-8'>
+            <h2 className='text-3xl text-center'>Products Category</h2>
+            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+
+                {
+                    phones.map(phone => <PhoneCategories
+                        key={phone._id}
+                        phone={phone}
+                    ></PhoneCategories>)
+                }
+            </div>
         </div>
     );
 };

@@ -54,7 +54,6 @@ const SignUp = () => {
                 .then(data => {
                     console.log(data)
                     toast.success('User Created Successfully');
-                    // navigate('/');
                 })
             updateUserProfile(user)
                 .then(() => { })

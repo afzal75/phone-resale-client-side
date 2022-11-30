@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MyProducts = ({ product, handleDeleteProduct }) => {
-    const { title, img } = product;
+    const { title, img, description, sellerName } = product;
 
 
     
@@ -12,7 +12,8 @@ const MyProducts = ({ product, handleDeleteProduct }) => {
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{title}</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <p className='text-2xl font-bold'>Seller: {sellerName}</p>
+                <p>{description}</p>
                 <div className="flex">
                     <div>
                         <button className="btn btn-primary mr-4">Buy Now</button>

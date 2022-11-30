@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Loading from '../../Shared/Loading/Loading';
 
 const MyOrders = () => {
-    const { data: orders = [], refetch } = useQuery({
+    const { data: orders = [], isLoading } = useQuery({
         queryKey: ['order'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/bookings');
@@ -11,6 +12,10 @@ const MyOrders = () => {
             return data;
         }
     });
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
     return (
         <div>
             <h2 className="text-4xl">My Orders</h2>

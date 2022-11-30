@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
+import Loading from '../../Shared/Loading/Loading';
 
 const AllSeller = () => {
-    const { data: sellers = [], refetch } = useQuery({
+    const { data: sellers = [], refetch, isLoading } = useQuery({
         queryKey: ['seller'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/sellers');
@@ -36,6 +37,10 @@ const AllSeller = () => {
                     toast.success(`Seller ${seller.displayName} Deleted Successfully`);
                 }
             })
+    }
+
+    if(isLoading){
+        return <Loading></Loading>
     }
     return (
         <div>

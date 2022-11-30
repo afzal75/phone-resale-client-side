@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import BookingModal from '../BookingModal/BookingModal';
+import Loading from '../Shared/Loading/Loading';
 import SingleCategoryProducts from './SingleCategoryProducts';
 
 const SingleCategoryProduct = () => {
 
     const [modalProducts, setModalProducts] = useState(null);
     const products = useLoaderData();
-    // console.log(products);
+    const navigation = useNavigation();
+
+    if (navigation.state === 'loading') {
+        return <Loading></Loading>
+    }
 
     return (
         <section>
@@ -18,15 +23,15 @@ const SingleCategoryProduct = () => {
                         product={product}
                         setModalProducts={setModalProducts}
                     ></SingleCategoryProducts>)
-                } 
-                
+                }
+
             </div>
             {
                 modalProducts &&
                 <BookingModal
-                modalProducts={modalProducts}
-                setModalProducts={setModalProducts}
-            ></BookingModal>}
+                    modalProducts={modalProducts}
+                    setModalProducts={setModalProducts}
+                ></BookingModal>}
         </section>
     );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-// import BookingModal from '../BookingModal/BookingModal';
 
 const SingleCategoryProducts = ({ product, setModalProducts }) => {
     const { title, img, location, resalePrice, originalPrice, useProduct } = product;

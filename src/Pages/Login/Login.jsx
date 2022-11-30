@@ -41,7 +41,7 @@ const Login = () => {
                 console.log(user);
                 const email = user?.email;
                 if (email) {
-                    axios.put(`http://localhost:5000/user/${email}`)
+                    axios.put(`https://y-chi-seven.vercel.app/user/${email}`)
                         .then(data => {
                             toast.success('User Added Successfully')
                             console.log(data);

@@ -7,7 +7,7 @@ const PhoneCategory = () => {
     const [phones, setPhones] = useState([]);
     const navigation = useNavigation();
     useEffect(() => {
-        fetch('http://localhost:5000/phoneCategory')
+        fetch('https://y-chi-seven.vercel.app/phoneCategory')
             .then(res => res.json())
             .then(data => setPhones(data))
     }, []);

@@ -7,7 +7,7 @@ const MyOrders = () => {
     const { data: orders = [], isLoading } = useQuery({
         queryKey: ['order'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/bookings');
+            const res = await fetch('https://y-chi-seven.vercel.app/bookings');
             const data = await res.json();
             return data;
         }

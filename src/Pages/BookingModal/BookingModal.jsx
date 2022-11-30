@@ -36,7 +36,7 @@ const BookingModal = ({ modalProducts, setModalProducts }) => {
             // sellerName: sellerName
         }
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://y-chi-seven.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

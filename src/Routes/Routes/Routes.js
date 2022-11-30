@@ -42,7 +42,7 @@ const router = createBrowserRouter([
             {
                 path: 'products/:id',
                 element: <PrivateRoute><SingleCategoryProduct></SingleCategoryProduct></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://y-chi-seven.vercel.app/products/${params.id}`)
             }
         ]
     },
@@ -74,7 +74,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader: ({ params }) => fetch(`https://y-chi-seven.vercel.app/bookings/${params.id}`)
             }
         ]
     }

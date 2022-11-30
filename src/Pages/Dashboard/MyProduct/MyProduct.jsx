@@ -8,14 +8,14 @@ const MyProduct = () => {
     const { data: products = [], isLoading, refetch } = useQuery({
         queryKey: ['product'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/products');
+            const res = await fetch('https://y-chi-seven.vercel.app/products');
             const data = await res.json();
             return data;
         }
     });
 
     const handleDeleteProduct = (product) => {
-        fetch(`http://localhost:5000/products/${product._id}`, {
+        fetch(`https://y-chi-seven.vercel.app/products/${product._id}`, {
             method: 'DELETE',
             // headers: {
             //     authorization: `bearer ${localStorage.getItem('accessToken')}`

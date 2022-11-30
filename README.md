@@ -1,10 +1,10 @@
-* My Website Name: Resale Product
+* My Website Name: PHONES RESELL
 
-* Live Website Link: 
+* Live Website Link: https://assignment-12-resale-project.web.app/
 
 * Admin Email & Password
-* Email: sajeeb999@gmail.com
-* Password: 123456
+* Admin Email: sajeeb999@gmail.com
+* Admin Password: 123456
 #### Features:
 * Clickeable Phone Category Card
 * Firebase Authentication
@@ -21,7 +21,7 @@
 * Stripe Payment Gateway Implement
 
 #### Techonologies
-* client side: React, Tailwind Css & Daisy UI, React Queary, React hook form, axios, React-router-dom, Firebase, Stripe Payment Gateway.
+* client side: React, Tailwind Css & Daisy UI, React Queary, React hook form, axios, React-router-dom, Firebase, Stripe Payment Gateway, React icons.
 
 * Server side: Node, Express, Vercel
 

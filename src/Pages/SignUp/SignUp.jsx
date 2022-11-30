@@ -43,7 +43,7 @@ const SignUp = () => {
                 photoURL: photoURL,
                 role: role,
             }
-            fetch('http://localhost:5000/users', {
+            fetch('https://y-chi-seven.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
